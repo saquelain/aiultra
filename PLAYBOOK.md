@@ -34,5 +34,5 @@ If a format has had about **6 Shorts judged** and none reached 1,000 views, swit
 - Never delete videos, never change account settings, never buy anything.
 - No fake engagement, no misleading titles, no reuploading other people's content.
 - Vary each video. No near-identical bulk uploads; YouTube's inauthentic-content policy punishes them.
-- Never commit secrets. Credentials only come from the environment variables `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and `YT_REFRESH_TOKEN`.
+- Never commit secrets. Credentials only come from environment variables (`YT_TOKEN_JSON`, or `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and `YT_REFRESH_TOKEN`).
 - Recommend a paid tool only when the data shows free tools are the bottleneck, and name the exact product and why.

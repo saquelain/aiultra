@@ -1,8 +1,10 @@
 """YouTube Data API access using credentials from environment variables.
 
-Required env vars (set in the cloud environment settings, never committed):
+Env vars (set in the cloud environment settings, never committed), either:
+  YT_TOKEN_JSON  the full contents of an OAuth token.json, or
   YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN
 """
+import json
 import os
 
 from google.oauth2.credentials import Credentials
@@ -13,9 +15,13 @@ TOKEN_URI = "https://oauth2.googleapis.com/token"
 
 
 def creds():
+    if os.environ.get("YT_TOKEN_JSON"):
+        # the whole token.json from an earlier OAuth login, pasted as one value
+        info = json.loads(os.environ["YT_TOKEN_JSON"])
+        return Credentials.from_authorized_user_info(info)
     missing = [k for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN") if not os.environ.get(k)]
     if missing:
-        raise SystemExit(f"missing env vars: {', '.join(missing)}")
+        raise SystemExit(f"set YT_TOKEN_JSON, or all of: {', '.join(missing)}")
     return Credentials(
         None,
         refresh_token=os.environ["YT_REFRESH_TOKEN"],

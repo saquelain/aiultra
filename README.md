@@ -15,4 +15,4 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python run.py make --exp test --rings 20
 ```
 
-Needs `ffmpeg` and the cairo library. Uploading needs `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and `YT_REFRESH_TOKEN` in the environment.
+Needs `ffmpeg` and the cairo library. Uploading needs `YT_TOKEN_JSON` (the full contents of an OAuth token.json) or `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and `YT_REFRESH_TOKEN` in the environment.
