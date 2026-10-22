@@ -1,0 +1,14 @@
+# secrets
+.env
+*.env
+client_secret*.json
+token*.json
+credentials*.json
+
+# build output
+.venv/
+__pycache__/
+out/
+*.mp4
+*.wav
+*.mp3
